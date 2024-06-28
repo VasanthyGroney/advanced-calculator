@@ -2,9 +2,10 @@ def calculator():
     while True:
         try:
             # Get user input for the numbers
-            num1 = float(input("Enter the first number (or 'q' to quit): "))
-            if num1 == 'q':
+            num1_input = input("Enter the first number (or 'q' to quit): ")
+            if num1_input.lower() == 'q':
                 break
+            num1 = float(num1_input)
             num2 = float(input("Enter the second number: "))
 
             # Display operation menu
