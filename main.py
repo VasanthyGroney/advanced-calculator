@@ -18,7 +18,14 @@ def calculator():
             print("7. Modulus")
 
             # Get user input for the operation choice
-            choice = int(input("Enter your choice (1-7): "))
+            while True:
+                try:
+                    choice = int(input("Enter your choice (1-7): "))
+                    if choice < 1 or choice > 7:
+                        raise ValueError("Invalid choice. Please enter a number from 1 to 7.")
+                    break
+                except ValueError as e:
+                    print(e)
 
             # Perform the selected operation and print the result
             if choice == 1:
@@ -51,15 +58,19 @@ def calculator():
                     print(f"The result of {num1} % {num2} is {result}")
                 except ZeroDivisionError:
                     print("Error: Division by zero is not allowed.")
-            else:
-                print("Invalid choice. Please enter a number from 1 to 7.")
 
         except ValueError:
             print("Error: Please enter numeric values.")
 
         # Ask if the user wants to continue or quit
-        choice = input("Do you want to continue (y/n)? ").lower()
-        if choice != 'y':
+        while True:
+            choice = input("Do you want to continue (y/n)? ").lower()
+            if choice == 'y' or choice == 'n':
+                break
+            else:
+                print("Invalid choice. Please enter 'y' or 'n'.")
+
+        if choice == 'n':
             break
 
 
